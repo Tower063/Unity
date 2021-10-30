@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private GameObject[,] gameField = new GameObject[6,6];
-    private int[,] playerPos;
+    private int playerXPos, playerZPos;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,5 +22,17 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void setPlayerPos(int x,int z)
+    {
+        playerXPos = x;
+        playerZPos = z;
+    }
+
+    public bool ChangeColor(int moveCode)
+    {
+
+        return true;
     }
 }

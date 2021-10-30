@@ -15,11 +15,11 @@ public class MovePlayer : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            transform.position -= new Vector3(0.7f, 1f, 0.7f);
+            transform.position += new Vector3(-0.7f, -1f, -0.7f);
         }
         if (Input.GetKeyDown(KeyCode.X))
         {
-            transform.position -= new Vector3(-0.7f, 1f, 0.7f);
+            transform.position += new Vector3(0.7f, -1f, -0.7f);
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
