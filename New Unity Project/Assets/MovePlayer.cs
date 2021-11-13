@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class MovePlayer : MonoBehaviour
 {
+    private int playerXPos, playerZPos;
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerXPos = 0;
+        playerZPos = 0;
     }
 
     // Update is called once per frame
@@ -15,19 +17,39 @@ public class MovePlayer : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            transform.position += new Vector3(-0.7f, -1f, -0.7f);
+            if(playerXPos < 5)
+            {
+                transform.position += new Vector3(-0.7f, -1f, -0.7f);
+                playerXPos++;
+            }
         }
         if (Input.GetKeyDown(KeyCode.X))
         {
-            transform.position += new Vector3(0.7f, -1f, -0.7f);
+            if(playerXPos < 5)
+            {
+                transform.position += new Vector3(0.7f, -1f, -0.7f);
+                playerXPos++;
+                playerZPos++;
+            }
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
-            transform.position += new Vector3(-0.7f, 1f, 0.7f);
+            if(playerXPos > 0 && playerZPos > 0)
+            {
+                transform.position += new Vector3(-0.7f, 1f, 0.7f);
+                playerXPos--;
+                playerZPos--;
+            }
+            
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
-            transform.position += new Vector3(0.7f, 1f, 0.7f);
+            if(playerXPos > 0 && playerZPos != playerXPos)
+            {
+                transform.position += new Vector3(0.7f, 1f, 0.7f);
+                playerXPos--;
+            }
+            
         }
     }
 }

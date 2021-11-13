@@ -5,7 +5,6 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private GameObject[,] gameField = new GameObject[6,6];
-    private int playerXPos, playerZPos;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +13,7 @@ public class GameManager : MonoBehaviour
             for(int y = 0; y < x + 1; y++)
             {
                 gameField[x, y] = GameObject.Find("Field" + x + y);
+                gameField[x, y].GetComponent<Material>().color = Color.red;
             }
         }
     }
@@ -21,18 +21,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
-
-    public void setPlayerPos(int x,int z)
+    public bool ChangeColor(int X, int Z)
     {
-        playerXPos = x;
-        playerZPos = z;
-    }
-
-    public bool ChangeColor(int moveCode)
-    {
-
+        gameField[X, Z].GetComponent<Material>().color = Color.red;
         return true;
     }
 }
