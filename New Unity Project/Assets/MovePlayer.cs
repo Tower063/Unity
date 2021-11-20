@@ -52,4 +52,12 @@ public class MovePlayer : MonoBehaviour
             
         }
     }
+
+    public int[] getPlayerPos()
+    {
+        int[] tmp = new int[2];
+        tmp[0] = playerXPos;
+        tmp[1] = playerZPos;
+        return tmp;
+    }
 }
